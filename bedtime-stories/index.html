@@ -60,14 +60,14 @@
   </header>
   <main>
     <article id="en" lang="en">
-      <p class="meta">Effective 10 November 2026. Package name <code>tw.yule.bedtimestories</code>. Publisher: 予樂工坊 (YU LE WORKSHOP).</p>
-      <p>This policy describes the Android app Bedtime Stories: Voice Clone — <em>Kids stories read in Mom &amp; Dad’s voice</em> (睡前故事：AI聲音克隆 爸爸媽媽說故事). It is the policy to host and paste into Google Play. It matches the app as built: on-device voice cloning, a fixed story library, optional download of public model files, and no publisher account, advertising, or analytics SDK.</p>
+      <p class="meta">Effective 11 November 2026. Package name <code>tw.yule.bedtimestories</code>. Publisher: 予樂工坊 (YU LE WORKSHOP).</p>
+      <p>This policy describes the Android app Bedtime Stories: Voice Clone — <em>Kids stories read in Mom &amp; Dad’s voice</em> (睡前故事：AI聲音克隆 爸爸媽媽說故事). It is the policy to host and paste into Google Play. It matches the app as built: on-device voice cloning; a fixed library of 20 public-domain and original-rewrite children’s stories (10 in Traditional Chinese and 10 in English); optional download of public model files; Google Play Billing with on-device receipt verification; background playback through a foreground media service and notification; and no publisher account, advertising, or analytics SDK.</p>
 
       <h2>Who we are</h2>
       <p>The publisher is 予樂工坊 (YU LE WORKSHOP). The app does not ask you to create an account with us. There is no publisher login, password, or profile, and no cross-device sync of your voice or library.</p>
 
       <h2>What the App does</h2>
-      <p>A parent records or imports <strong>their own adult voice</strong>. The app builds a voice profile on the device and uses it to read our fixed library of public-domain and original-rewrite children’s stories. The store listing and in-app screens disclose AI-generated speech. The app does not offer user-generated stories or voice sharing.</p>
+      <p>A parent records or imports <strong>their own adult voice</strong>. The app builds a voice profile on the device and uses it to read our fixed library of <strong>20</strong> public-domain and original-rewrite children’s stories (10 in Traditional Chinese and 10 in English). The store listing and in-app screens disclose AI-generated speech. The app does not offer user-generated stories or voice sharing.</p>
 
       <h2>Voice samples and voiceprints</h2>
       <p>If you choose to clone a voice, the app collects and stores the following on the device, for the sole purpose of reading stories in that voice:</p>
@@ -92,14 +92,17 @@
         <li>Optional on-device timing logs from model stages. Those logs are written so they do not include the recording, the embedding, or story text.</li>
         <li>If you use Report inappropriate content, a draft is saved on the device only. The current version does not send reports to us. Please do not put personal information in a draft.</li>
         <li>If you install a model pack, the published model files are stored in the app’s private storage so cloning can run offline.</li>
+        <li>If you buy the lifetime plan, a signed Google Play receipt (which includes a purchase token) may be stored in the app’s private storage so access can be checked after a restart. That copy is verified on the device with Google’s public Play licensing key. It is not uploaded to us and, like other local data, is not encrypted at rest. Subscriptions are checked with Google Play when you open or return to the app, rather than being unlocked from a stored receipt alone.</li>
       </ul>
       <p>We do not collect your name, email address, phone number, or Google account identifier in the app. We do not run our own analytics or crash-reporting product, and the app does not include advertising or tracking SDKs.</p>
 
       <h2>Permissions</h2>
       <ul>
         <li><strong>Microphone</strong> is requested only when you start a recording, so the app can capture your own voice sample. You can refuse or later revoke it in Android settings. Listening to stories does not need the microphone.</li>
-        <li><strong>Internet</strong> is used to download the public model pack when you ask the app to, and would be used only if a server were later configured as described above. Cached story audio can be replayed offline.</li>
-        <li><strong>Wake lock</strong> is used so playback can continue during a sleep timer. The app does not currently run a foreground media service.</li>
+        <li><strong>Internet</strong> is used to download the public model pack when you ask the app to, and to communicate with Google Play when you buy or restore a plan. It would also be used if a server were later configured as described above. Cached story audio can be replayed offline.</li>
+        <li><strong>Wake lock</strong> is used so playback can continue during a sleep timer.</li>
+        <li><strong>Foreground media playback</strong> is used so narration can continue after you go Home or turn the screen off, including while a sleep timer is running. The app runs a foreground media playback service for this purpose.</li>
+        <li><strong>Notifications</strong> are used to show a playback notification while that service is running. You can refuse or later revoke notification permission in Android settings; the system may then limit background playback.</li>
         <li><strong>File import</strong> uses Android’s system file picker. The app does not request broad access to your shared storage. Only a file you pick is copied into app-private storage.</li>
       </ul>
 
@@ -107,8 +110,9 @@
       <p>The on-device models are large published files (on the order of hundreds of megabytes). When a public download address is configured, the app fetches checksummed pieces from a GitHub Releases host over HTTPS, and can resume an interrupted download. That transfer is of public model files, not your voice, voiceprint, or stories. GitHub may see technical data such as your IP address under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>. You can instead import a model ZIP through the system file picker with no download. If no public address is configured, only offline import is available.</p>
 
       <h2>Purchases and Google Play Billing</h2>
-      <p>Paid plans, when offered, will be sold through Google Play Billing (including subscriptions and a one-time lifetime option, as then shown in the app). Google Play processes the payment. <strong>We do not receive your card number, bank details, or other payment-instrument data.</strong> Final prices are those Google Play displays for your account and country.</p>
-      <p>The current version shows illustrative proposed prices and does not process purchases, restore purchases, or sign you in to claim a subscription. Local free-tier counters (one clone and three stories in this version) are stored on the device and can reset if you reinstall. When billing is connected, we will keep this description aligned with the live products.</p>
+      <p>Paid plans are sold through Google Play Billing. The app offers auto-renewing monthly and yearly subscriptions and a one-time lifetime purchase, as shown in the app and on Google Play. Google Play processes the payment. <strong>We do not receive your card number, bank details, or other payment-instrument data.</strong> Final prices are those Google Play displays for your account and country.</p>
+      <p>When you buy or restore, the app verifies the purchase <strong>on the device</strong> by checking the receipt’s digital signature against <strong>Google’s public Play licensing key</strong>. <strong>Your purchase token is not sent to us.</strong> A signed lifetime receipt may be stored in the app’s private storage, as described above, so access can be restored after a restart; that local copy is not uploaded. Subscriptions are re-checked with Google Play when you open or return to the app. Deleting local app data or uninstalling does not cancel a Google Play subscription; manage or cancel subscriptions in Google Play.</p>
+      <p>The free tier in this version is one voice clone and three story generations, stored as counters on the device, and can reset if you reinstall. Replaying a cached story does not use another generation. If we later use a server of our own to verify purchases, we will update this policy before any purchase token is sent to us.</p>
 
       <h2>Children’s privacy</h2>
       <p>Voice cloning, consent, recording, import, server settings, and deletion are intended for a parent or other adult. An arithmetic parental gate is shown before those adult flows. The app itself tells you that this gate, and the consent checkboxes, are <strong>not</strong> verifiable parental consent and are not identity or age verification.</p>
@@ -128,13 +132,13 @@
       <p>In Settings you may:</p>
       <ul>
         <li><strong>Delete voice &amp; audio</strong> — removes the local recording, voice profile, generated and cached audio, consent record, and import temporaries. If a remote voice ever existed, the app tries to delete it on that server first and keeps local identifiers if that deletion is not confirmed.</li>
-        <li><strong>Delete local account data</strong> — does the above and also clears other local app data (including model files, preferences, quotas, and unsent report drafts). There is no remote publisher account to close.</li>
+        <li><strong>Delete local account data</strong> — does the above and also clears other local app data (including model files, preferences, quotas, unsent report drafts, and any locally cached purchase entitlement). There is no remote publisher account to close. This does not cancel a Google Play subscription.</li>
       </ul>
       <p>You can also write to us at the address below. Deletion cannot be undone.</p>
 
       <h2>Third parties and sharing</h2>
       <ul>
-        <li><strong>Google Play</strong> — distribution of the app, and payment processing when billing is connected, under Google’s terms and privacy policy.</li>
+        <li><strong>Google Play</strong> — distribution of the app and payment processing (including the purchase receipts the app verifies on the device), under Google’s terms and privacy policy.</li>
         <li><strong>GitHub</strong> — only as the public host of model-pack files you choose to download, as described above.</li>
         <li>We do not sell your personal information. We do not share your voice sample or voiceprint with advertisers or a third-party speech API. We may disclose information if required by law or to protect rights, but the current version does not send your voice data to us.</li>
       </ul>
@@ -151,14 +155,14 @@
 
     <article id="zh" class="lang" lang="zh-Hant">
       <h2>繁體中文</h2>
-      <p class="meta">生效日：2026年11月10日。套件名稱 <code>tw.yule.bedtimestories</code>。發布者：予樂工坊（YU LE WORKSHOP）。</p>
-      <p>本政策說明 Android 應用程式「睡前故事：AI聲音克隆 爸爸媽媽說故事」（Bedtime Stories: Voice Clone — Kids stories read in Mom &amp; Dad’s voice）。這是準備放上網站並貼到 Google Play 的版本，內容對應目前的應用程式：裝置端語音克隆、固定故事庫、可選的公開模型檔下載；沒有向我們註冊的帳號，也沒有廣告或分析 SDK。</p>
+      <p class="meta">生效日：2026年11月11日。套件名稱 <code>tw.yule.bedtimestories</code>。發布者：予樂工坊（YU LE WORKSHOP）。</p>
+      <p>本政策說明 Android 應用程式「睡前故事：AI聲音克隆 爸爸媽媽說故事」（Bedtime Stories: Voice Clone — Kids stories read in Mom &amp; Dad’s voice）。這是準備放上網站並貼到 Google Play 的版本，內容對應目前的應用程式：裝置端語音克隆；固定 20 則公版／原創改寫兒童故事（繁體中文 10 則、英文 10 則）；可選的公開模型檔下載；以 Google 公開授權金鑰在裝置上驗證的 Google Play 帳單；以前景媒體服務與通知繼續背景播放；沒有向我們註冊的帳號，也沒有廣告或分析 SDK。</p>
 
       <h3>我們是誰</h3>
       <p>發布者是予樂工坊（YU LE WORKSHOP）。應用程式不會要求你向我們註冊帳號，沒有發布者登入、密碼或個人檔案，也不會把你的聲音或書庫同步到其他裝置。</p>
 
       <h3>本 App 做什麼</h3>
-      <p>家長錄製或匯入<strong>本人的成人聲音</strong>。應用程式在裝置上建立聲音檔案，並以該聲音朗讀我們提供的固定公版／原創改寫兒童故事。商店頁面與應用程式內會標示「含 AI 生成語音」。本 App 不提供使用者自製故事，也不提供聲音分享。</p>
+      <p>家長錄製或匯入<strong>本人的成人聲音</strong>。應用程式在裝置上建立聲音檔案，並以該聲音朗讀我們提供的固定 <strong>20</strong> 則公版／原創改寫兒童故事（繁體中文 10 則、英文 10 則）。商店頁面與應用程式內會標示「含 AI 生成語音」。本 App 不提供使用者自製故事，也不提供聲音分享。</p>
 
       <h3>語音樣本與聲紋</h3>
       <p>若你選擇建立克隆聲音，應用程式會在裝置上蒐集並儲存下列資料，目的僅限以該聲音朗讀故事：</p>
@@ -183,14 +187,17 @@
         <li>可選的本機階段計時紀錄。這些紀錄的寫入方式不包含錄音、聲紋或故事正文。</li>
         <li>若你使用「回報不當內容」，草稿只存在裝置上。目前版本不會把回報送給我們。請不要在草稿中填寫個人資料。</li>
         <li>若你安裝模型包，公開的模型檔會存在應用程式私有空間，以便離線克隆。</li>
+        <li>若你購買終身方案，應用程式可能把經簽署的 Google Play 收據（內含購買憑證）存在其私有空間，以便重新啟動後檢查權益。該副本以 Google 的 Play 授權公鑰在裝置上驗證，不會上傳給我們；與其他本機資料一樣，目前沒有靜態加密。訂閱權益會在你開啟或回到應用程式時向 Google Play 查詢，而不是只靠本機儲存的收據解鎖。</li>
       </ul>
       <p>我們不會在應用程式中蒐集你的姓名、電子郵件、電話或 Google 帳戶識別碼。我們沒有自己的分析或當機回報產品，應用程式也不包含廣告或追蹤 SDK。</p>
 
       <h3>權限</h3>
       <ul>
         <li><strong>麥克風</strong>只在你按下開始錄音時才會請求，用來擷取你本人的語音樣本。你可以拒絕，或之後在 Android 設定中撤回。只聽故事不需要麥克風。</li>
-        <li><strong>網路</strong>用於在你要求時下載公開模型包；若日後依上文設定了伺服器，也會用到網路。已快取的故事音檔可以離線重播。</li>
-        <li><strong>保持喚醒（Wake lock）</strong>用於睡眠計時器期間繼續播放。目前版本尚未實作前景媒體服務。</li>
+        <li><strong>網路</strong>用於在你要求時下載公開模型包，以及在購買或還原方案時與 Google Play 通訊。若日後依上文設定了伺服器，也會用到網路。已快取的故事音檔可以離線重播。</li>
+        <li><strong>保持喚醒（Wake lock）</strong>用於睡眠計時器期間繼續播放。</li>
+        <li><strong>前景媒體播放</strong>用於在你回到桌面或關閉螢幕後繼續朗讀，包括睡眠計時器仍在計時時。應用程式會為此執行前景媒體播放服務。</li>
+        <li><strong>通知</strong>用於在上述服務執行時顯示播放通知。你可以拒絕，或之後在 Android 設定中撤回通知權限；系統之後可能限制背景播放。</li>
         <li><strong>檔案匯入</strong>透過 Android 系統檔案選擇器完成。應用程式不會要求廣泛存取你的共用儲存空間，只會把你選取的檔案複製到應用程式私有空間。</li>
       </ul>
 
@@ -198,8 +205,9 @@
       <p>裝置端模型是較大的公開檔案（約數百 MB）。若已設定公開下載網址，應用程式會以 HTTPS 從 GitHub Releases 主機下載經過校驗的分塊，並可續傳中斷的下載。此傳輸是公開模型檔，不是你的聲音、聲紋或故事。GitHub 可能依其<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">隱私權聲明</a>看到 IP 位址等技術資料。你也可以改用系統檔案選擇器匯入模型 ZIP，無須下載。若尚未設定公開網址，則僅能離線匯入。</p>
 
       <h3>購買與 Google Play 帳單</h3>
-      <p>付費方案（若提供）將透過 Google Play 帳單銷售（包括訂閱與一次性買斷，以當時應用程式顯示為準）。付款由 Google Play 處理。<strong>我們不會收到你的卡號、銀行資料或其他付款工具資料。</strong>最終售價以 Google Play 依你的帳戶與國家顯示者為準。</p>
-      <p>目前版本僅顯示暫定示意價格，並不處理付款、還原購買，也不登入以宣稱已訂閱。本機免費額度（此版本為 1 次克隆與 3 則故事）存在裝置上，解除安裝後可能重設。待帳單接入後，我們會讓本段說明與實際上架商品一致。</p>
+      <p>付費方案透過 Google Play 帳單銷售。應用程式提供自動續訂的月訂與年訂，以及一次買斷的終身方案，以應用程式與 Google Play 當時顯示為準。付款由 Google Play 處理。<strong>我們不會收到你的卡號、銀行資料或其他付款工具資料。</strong>最終售價以 Google Play 依你的帳戶與國家顯示者為準。</p>
+      <p>購買或還原時，應用程式會在<strong>裝置上</strong>核對收據的數位簽章，使用的是<strong>Google 的 Play 授權公鑰</strong>。<strong>你的購買憑證不會傳給我們。</strong>終身方案的已簽署收據可能依上文所述存在應用程式私有空間，以便重新啟動後還原權益；該本機副本不會上傳。訂閱會在你開啟或回到應用程式時向 Google Play 再查一次。刪除本機資料或解除安裝，不會取消 Google Play 訂閱；請在 Google Play 管理或取消訂閱。</p>
+      <p>此版本的免費額度為 1 次聲音克隆與 3 則故事生成，以本機計數保存，解除安裝後可能重設。已快取的重播不另計次。若日後改由我們的伺服器驗證購買，我們會在任何購買憑證傳送給我們之前，先更新本政策。</p>
 
       <h3>兒童隱私</h3>
       <p>語音克隆、同意、錄音、匯入、伺服器設定與刪除，是給家長或其他成年人使用的。進入這些流程前會出現算術家長閘門。應用程式會說明：此閘門與同意勾選<strong>不是</strong>可驗證的家長同意，也不是身分或年齡驗證。</p>
@@ -219,13 +227,13 @@
       <p>在「設定」中你可以：</p>
       <ul>
         <li><strong>刪除聲音與音檔</strong>——移除本機錄音、聲音檔案、已生成與快取的音訊、同意紀錄，以及匯入的暫存檔。若曾有遠端聲音，應用程式會先請求該伺服器刪除；若未獲確認，會保留本機識別資料。</li>
-        <li><strong>刪除本機帳號資料</strong>——執行上述動作，並一併清除其他本機應用程式資料（包括模型檔、偏好設定、額度與未送出的回報草稿）。我們沒有遠端發布者帳號可供關閉。</li>
+        <li><strong>刪除本機帳號資料</strong>——執行上述動作，並一併清除其他本機應用程式資料（包括模型檔、偏好設定、額度、未送出的回報草稿，以及本機快取的購買權益）。我們沒有遠端發布者帳號可供關閉。這不會取消 Google Play 訂閱。</li>
       </ul>
       <p>你也可以用下方地址與我們聯絡。刪除後無法復原。</p>
 
       <h3>第三方與分享</h3>
       <ul>
-        <li><strong>Google Play</strong>——應用程式發行，以及在帳單接入後的付款處理，適用 Google 的條款與隱私權政策。</li>
+        <li><strong>Google Play</strong>——應用程式發行與付款處理（包括應用程式在裝置上驗證的購買收據），適用 Google 的條款與隱私權政策。</li>
         <li><strong>GitHub</strong>——僅作為你選擇下載之模型包的公開托管方，詳見上文。</li>
         <li>我們不出售你的個人資料。我們不會把你的語音樣本或聲紋提供給廣告商或第三方語音 API。法律要求或為保護權利所必需時，可能揭露資料；但目前版本並不會把你的語音資料傳送給我們。</li>
       </ul>
